@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MyClass Dashboard</title>
-  <style>
-    body {
+ body {
       margin: 0;
       font-family: Arial, sans-serif;
       background: #ddd;
@@ -83,56 +76,3 @@
       border-radius: 6px;
     }
   </style>
-</head>
-<body>
-  <div class="sidebar">
-    <h2>MyClass</h2>
-    <a href="#">Home</a>
-    <a href="#">Task</a>
-    <a href="#">Classroom</a>
-    <a href="#">Score</a>
-    <a href="#">Test</a>
-    <a href="#">Settings</a>
-  </div>
-
-  <div class="main">
-    <div class="classes">
-      <div class="card">
-        <h3>Biology</h3>
-        <p>Roy Alexander Shiyuz</p>
-      </div>
-      <div class="card">
-        <h3>Mathematics</h3>
-        <p>Roy Alexander Shiyuz</p>
-      </div>
-      <div class="card">
-        <h3>English</h3>
-        <p>Chyntia Dekawat</p>
-      </div>
-    </div>
-
-    <div class="rightbar">
-      <div class="calendar">
-        <h3>May</h3>
-        <p>[Calendar Placeholder]</p>
-      </div>
-      <div class="schedule-item">
-        <strong>English Lesson 1</strong><br>
-        May 1, 2025 | 08:00 - 09:00
-      </div>
-      <div class="schedule-item">
-        <strong>Biology / Muslim</strong><br>
-        May 1, 2025 | 09:00 - 10:00
-      </div>
-      <div class="schedule-item">
-        <strong>Lunch Break</strong><br>
-        May 1, 2025 | 12:00 - 13:00
-      </div>
-      <div class="schedule-item">
-        <strong>Chemistry</strong><br>
-        May 1, 2025 | 13:00 - 14:00
-      </div>
-    </div>
-  </div>
-</body>
-</html>
