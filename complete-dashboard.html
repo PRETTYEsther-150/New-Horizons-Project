@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<style>
+body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+    }
+    .container {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      max-width: 400px;
+      width: 100%;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 5px;
+      text-align: center;
+    }
+    .day, .date {
+      padding: 10px;
+      border-radius: 6px;
+    }
+    .day {
+      font-weight: bold;
+      background: #e8ebf1;
+    }
+    .date {
+      cursor: pointer;
+    }
+    .date:hover {
+      background:  rgb(239, 121, 18);
+      color: white;
+    }
+    .active {
+      background: rgb(239, 121, 18);
+      color: white;
+    }
+    .schedule {
+      margin-top: 20px;
+    }
+    .schedule-item {
+      padding: 10px;
+      margin: 5px 0;
+      border-left: 5px solid rgb(239, 121, 18);
+      background: #f9f9f9;
+      border-radius: 6px;
+    }
+    .time {
+      font-size: 0.9em;
+      color: gray;
+    }
+
+
+body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #ddd;
+      color: black;
+      display: flex;
+      height: 100vh;
+    }
+    .classes{
+        flex: 2;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 220px;
+      background: black;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      max-height: 100%;
+    }
+    .sidebar h2 {
+      color: rgb(150, 70, 3);
+      margin-bottom: 30px;
+    }
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+      margin: 10px 0;
+      padding: 8px;
+      border-radius: 6px;
+      display: block;
+    }
+    .sidebar a:hover {
+      background: rgb(150, 70, 3);
+    }
+
+    /* Main */
+    .main {
+      flex: 1;
+      display: flex;
+      padding: 20px;
+      gap: 20px;
+    }
+
+    
+    .card {
+      background: white;
+      border-left: 6px solid rgb(150, 70, 3);
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .card h3 {
+      margin: 0;
+    }
+
+    /* Sidebar Right */
+    .rightbar {
+      flex: 1;
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      max-width: 400px;
+      margin-top: 40px;
+    }
+    .calendar {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .schedule-item {
+      background: #ddd;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-left: 4px solid rgb(150, 70, 3);
+      border-radius: 6px;
+    }
+</style>
+<body>
+    
+    <div class="sidebar">
+    <h2>MyClass</h2>
+    <a href="#">Home</a>
+    <a href="#">Task</a>
+    <a href="#">Classroom</a>
+    <a href="#">Score</a>
+    <a href="#">Test</a>
+    <a href="#">Settings</a>
+  </div>
+
+  <div class="main">
+    <div class="classes">
+
+      <div class="card">
+        <h3>Biology</h3>
+        <p>Roy Alexander Shiyuz</p>
+      </div>
+
+      <div class="card">
+        <h3>Mathematics</h3>
+        <p>Roy Alexander Shiyuz</p>
+      </div>
+
+      <div class="card">
+        <h3>English</h3>
+        <p>Chyntia Dekawat</p>
+      </div>
+      </div>
+    </div>
+
+
+  <section>
+     <div class="container">
+        <h2>September 2025</h2>
+        <div class="calendar" id="calendar"></div>
+
+        <div class="schedule">
+            <h3>Upcoming Schedule</h3>
+            <div id="scheduleList"></div>
+        </div>
+    </div>
+    <div class="rightbar">
+      <div class="calendar">
+        <h3>September's Calendar </h3>
+      </div>
+
+    <div class="schedule-item">
+        <strong>English Lesson 1</strong><br>
+        EVERYDAY | 08:00 - 09:00
+    </div>
+    <div class="schedule-item">
+        <strong>Biology / Muslim</strong><br>
+        EVERYDAY | 09:00 - 10:00
+    </div>
+    <div class="schedule-item">
+        <strong>Lunch Break</strong><br>
+        EVERYDAY | 12:00 - 13:00
+    </div>
+    <div class="schedule-item">
+        <strong>Chemistry</strong><br>
+        EVERYDAY | 13:00 - 14:00
+    </div>
+    </div>
+  
+ </section>
+
+
+<script>
+const days = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+    const calendar = document.getElementById("calendar");
+
+    // * Insert weekday headers
+    days.forEach(d => {
+      let div = document.createElement("div");
+      div.classList.add("day");
+      div.textContent = d;
+      calendar.appendChild(div);
+    });
+
+    // * Example schedule data
+    const schedules = {
+      "2025-09-12": [
+        { title: "Biology Class", time: "10:00 - 11:00" },
+        { title: "Math Revision", time: "13:00 - 14:00" }
+      ],
+      "2025-09-15": [
+        { title: "English Lesson", time: "09:00 - 10:30" },
+        { title: "Lunch Break", time: "12:00 - 13:00" }
+      ]
+    };
+
+    // * Render September 2025
+    let year = 2025, month = 8; // (JS months start at 0, so 8 = September)
+    let firstDay = new Date(year, month, 1).getDay();
+    let lastDate = new Date(year, month+1, 0).getDate();
+
+    // * Fill empty slots before 1st day
+    for (let i=0; i<firstDay; i++) {
+      let div = document.createElement("div");
+      calendar.appendChild(div);
+    }
+
+    // * Generate dates
+    for (let d=1; d<=lastDate; d++) {
+      let div = document.createElement("div");
+      div.classList.add("date");
+      div.textContent = d;
+
+      let dateKey = `${year}-${String(month+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+
+      div.addEventListener("click", () => {
+        document.querySelectorAll(".date").forEach(el => el.classList.remove("active"));
+        div.classList.add("active");
+        showSchedule(dateKey);
+      });
+
+      calendar.appendChild(div);
+    }
+
+    // * Show schedule function
+    function showSchedule(dateKey) {
+      const list = document.getElementById("scheduleList");
+      list.innerHTML = "";
+      if (schedules[dateKey]) {
+        schedules[dateKey].forEach(item => {
+          let div = document.createElement("div");
+          div.classList.add("schedule-item");
+          div.innerHTML = `<strong>${item.title}</strong><br><span class="time">${item.time}</span>`;
+          list.appendChild(div);
+        });
+      } else {
+        list.innerHTML = "<p>No events for this date.</p>";
+      }
+    }
+
+
+</script>
+
+
+
+
+</body>
+</html>
+
+
